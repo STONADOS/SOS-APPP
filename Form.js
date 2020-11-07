@@ -19,17 +19,48 @@ display(){
     this.list.position((displayWidth/2) + 75, 275);
     this.button2.position((displayWidth/2) + 75, 300);
 
+    
+
 
     this.button1.mousePressed(()=>{
         var name = this.input.value();
 
         if(name){
-        console.log(name);
-        }
+
+        database.ref('/').update({
+            Name:name,
+            Lat:3,
+            Long:4,
+            Element:"SOS"
+        })
+    }
+        
     });
+
     this.button2.mousePressed(()=>{
+
+        var name = this.input.value();
+
+        var element = this.list.value();
+        if(name && element != "SELECT"){
         var service = this.list.value();
         console.log(service);
+        database.ref('/').update({
+            Name:name,
+            Lat:3,
+            Long:4,
+            Element:this.list.value()
+        })
+    }
     } );
 }
+
+async gettingLatLong(){
+
+    var response  = await fetch ("https://maps.googleapis.com/maps/api/geocode/json?address");
+    var jsonresponse = await response.json();
+    console.log(json)
 }
+
+}
+
