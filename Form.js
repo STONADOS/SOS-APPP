@@ -14,13 +14,33 @@ class Form{
 
     }
 display(){
-    this.input.position((displayWidth/2), 200);
+    let col = color(2009, 2009, 200, 100);
+
+
+    this.input.position((displayWidth/2) -20, 200);
+    this.input.style('background-color', col);
+    this.input.style('font-size', '20px');
+    this.input.size(200, 30)
+    var k = this.input.value();
+    textAlign(CENTER);
+    textSize(50);
+
     this.button1.position((displayWidth/2) - 50, 275);
+    this.button1.style('background-color', col);
+    this.button1.style('font-size', '20px');
+
+
     this.list.position((displayWidth/2) + 75, 275);
-    this.button2.position((displayWidth/2) + 75, 300);
+    this.list.style('background-color', col);
+    this.list.style('font-size', '20px');
+
+
+
+    this.button2.position((displayWidth/2) + 75, 315);
+    this.button2.style('background-color', col);
+    this.button2.style('font-size', '20px');
 
     
-
 
     this.button1.mousePressed(()=>{
         var name = this.input.value();
@@ -51,6 +71,11 @@ display(){
             Long:4,
             Element:this.list.value()
         })
+
+        state = 1;
+
+        
+        
     }
     } );
 }
@@ -63,4 +88,3 @@ async gettingLatLong(){
 }
 
 }
-
